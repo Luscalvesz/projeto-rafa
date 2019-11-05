@@ -14,6 +14,10 @@ namespace API.Controllers {
     public class ProdutoController : ControllerBase {
         ProdutoRepository _produtoRepository = new ProdutoRepository();
 
+        /// <summary>
+        /// Listagem de todos os produtos
+        /// </summary>
+        /// <returns> Retorna ao usuário todos os produtos </returns>
         [HttpGet("tolist")]
         public async Task<ActionResult<List<Produto>>> Get() {
             try {
@@ -34,7 +38,11 @@ namespace API.Controllers {
                 throw ex;
             }
         }
-
+        /// <summary>
+        /// Lista de um produto específico
+        /// </summary>
+        /// <param name="id">Recebe o id de um produto informado</param>
+        /// <returns>Retorna ao usuário as informações do produto informado</returns>
         [HttpGet("search/{id}")]
         public async Task<ActionResult<Produto>> Get(int id) {
             try {
@@ -51,6 +59,11 @@ namespace API.Controllers {
             }
         }
 
+        /// <summary>
+        /// Incusão de novo produto
+        /// </summary>
+        /// <param name="produto">Parâmetro recebe um novo produto </param>
+        /// <returns> Retorna ao usuário os campos para criar um novo produto</returns>
         [HttpPost("insert")]
         public async Task<ActionResult<Produto>> Post(Produto produto) {
             try {
@@ -60,7 +73,12 @@ namespace API.Controllers {
                 throw ex;
             }
         }
-
+        /// <summary>
+        /// Alteração de um produto específico
+        /// </summary>
+        /// <param name="id">Recebe o id específico do produto</param>
+        /// <param name="produto">Recebe as informações que serão alteradas</param>
+        /// <returns>Retorna ao usuário os campos para alteração de um produto</returns>
         [HttpPut("update/{id}")]
         public async Task<ActionResult<Produto>> Put(int id, Produto produto) {
             if (id != produto.IdProduto) {
@@ -81,7 +99,11 @@ namespace API.Controllers {
                 }
             }
         }
-
+        /// <summary>
+        /// Deleta um produto
+        /// </summary>
+        /// <param name="id">Recebe o id do produto que será deletado</param>
+        /// <returns>Retorna ao usuário a informação de exclusão</returns>
         [HttpDelete("delete/{id}")]
         public async Task<ActionResult<Produto>> Delete(int id) {
             try {

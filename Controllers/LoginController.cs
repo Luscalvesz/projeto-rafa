@@ -25,6 +25,7 @@ namespace API.Controllers {
             _config = config;
         }
 
+        
         [AllowAnonymous]
         [HttpPost]
         public IActionResult Login(Usuario login) {

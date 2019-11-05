@@ -13,7 +13,10 @@ namespace API.Controllers {
     [Produces("application/json")]
     public class InteresseController : ControllerBase {
         InteresseRepository _interesseRepository = new InteresseRepository();
-
+        /// <summary>
+        /// Listagem de todos os interesses
+        /// </summary>
+        /// <returns>Retorna ao usuário todos os interesses</returns>
         [HttpGet("tolist")]
         public async Task<ActionResult<List<Interesse>>> Get() {
             try {
@@ -35,6 +38,11 @@ namespace API.Controllers {
             }
         }
 
+        /// <summary>
+        /// Lista de um interesse específico
+        /// </summary>
+        /// <param name="id">Recebe o id do interesse informado</param>
+        /// <returns>Retorna ao usuário as informações de interesse informado</returns>
         [HttpGet("search/{id}")]
         public async Task<ActionResult<Interesse>> Get(int id) {
             try {
@@ -51,6 +59,11 @@ namespace API.Controllers {
             }
         }
 
+        /// <summary>
+        /// Incusão de um novo interesse
+        /// </summary>
+        /// <param name="interesse">Parâmetro recebe um novo interesse</param>
+        /// <returns>Retorna ao usuário os campos para criar um novo interesse</returns>
         [HttpPost("insert")]
         public async Task<ActionResult<Interesse>> Post(Interesse interesse) {
             try {
@@ -60,7 +73,12 @@ namespace API.Controllers {
                 throw ex;
             }
         }
-
+        /// <summary>
+        /// Alteração de um interesse específico
+        /// </summary>
+        /// <param name="id">Recebe o id específico do interesse</param>
+        /// <param name="interesse">Recebe as informações que serão alteradas</param>
+        /// <returns>Retorna ao usuário os campos para alteração de um interesse</returns>
         [HttpPut("update/{id}")]
         public async Task<ActionResult<Interesse>> Put(int id, Interesse interesse) {
             if (id != interesse.IdInteresse) {
@@ -82,7 +100,11 @@ namespace API.Controllers {
 
             }
         }
-
+        /// <summary>
+        /// Deleta um interesse
+        /// </summary>
+        /// <param name="id">Recebe o id de interesse que será deletado</param>
+        /// <returns>Retorna ao usuário a informação de exclusão</returns>
         [HttpDelete("delete/{id}")]
         public async Task<ActionResult<Interesse>> Delete(int id) {
             try {

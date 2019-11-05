@@ -8,30 +8,36 @@ using API.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 
-namespace API.Controllers {
+namespace API.Controllers
+{
     [ApiController]
     [Route("api/[controller]")]
     [Produces("application/json")]
-    public class ConservacaoController : ControllerBase {
+    public class ConservacaoController : ControllerBase
+    {
         ConservacaoRepository _conservacaoRepository = new ConservacaoRepository();
 
         /// <summary>
-        /// Listagem de todos os estados de conservção
+        /// Listagem de todos os estados de conservação
         /// </summary>
         /// <returns>Retorna ao usuário todos os estados de conservação</returns>
         [Authorize(Roles = "Administracao")]
         [HttpGet("tolist")]
-        public async Task<ActionResult<List<Conservacao>>> Get() {
-            try {
+        public async Task<ActionResult<List<Conservacao>>> Get()
+        {
+            try
+            {
                 List<Conservacao> lstConservacao = await _conservacaoRepository.Get();
 
-                if (lstConservacao == null) {
+                if (lstConservacao == null)
+                {
                     return NotFound();
                 }
 
                 return lstConservacao;
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 throw ex;
             }
         }
@@ -41,17 +47,21 @@ namespace API.Controllers {
         /// <param name="id"> Recebe o id da conservação informada</param>
         /// <returns> Retorna ao usuário as informações da conservação informada </returns>
         [HttpGet("search/{id}")]
-        public async Task<ActionResult<Conservacao>> Get(int id) {
-            try {
+        public async Task<ActionResult<Conservacao>> Get(int id)
+        {
+            try
+            {
                 Conservacao conservacao = await _conservacaoRepository.Get(id);
 
-                if (conservacao == null) {
+                if (conservacao == null)
+                {
                     return NotFound();
                 }
 
                 return conservacao;
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 throw ex;
             }
         }
@@ -62,11 +72,14 @@ namespace API.Controllers {
         /// <param name="conservacao">Parâmetro recebe uma nova conservação</param>
         /// <returns> Retorna ao usuário os campos para criar uma nova conservação </returns>
         [HttpPost("insert")]
-        public async Task<ActionResult<Conservacao>> Post(Conservacao conservacao) {
-            try {
+        public async Task<ActionResult<Conservacao>> Post(Conservacao conservacao)
+        {
+            try
+            {
                 return await _conservacaoRepository.Post(conservacao);
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 throw ex;
             }
         }
@@ -78,21 +91,27 @@ namespace API.Controllers {
         /// <param name="conservacao"> Recebe as informações que serão alteradas </param>
         /// <returns>Retorna ao usuário os campos para alteração de uma conservação</returns>
         [HttpPut("update/{id}")]
-        public async Task<ActionResult<Conservacao>> Put(int id, Conservacao conservacao) {
-            if (id == conservacao.IdConservacao) {
+        public async Task<ActionResult<Conservacao>> Put(int id, Conservacao conservacao)
+        {
+            if (id == conservacao.IdConservacao)
+            {
                 return BadRequest();
             }
 
-            try {
+            try
+            {
                 return await _conservacaoRepository.Put(conservacao);
             }
-            catch (DbUpdateException ex) {
+            catch (DbUpdateException ex)
+            {
                 var conservacaoValida = await _conservacaoRepository.Get(id);
 
-                if (conservacaoValida == null) {
+                if (conservacaoValida == null)
+                {
                     return NotFound();
                 }
-                else {
+                else
+                {
                     throw ex;
                 }
             }
@@ -104,11 +123,14 @@ namespace API.Controllers {
         /// <param name="id"> Recebe o id da conservação que será deletada</param>
         /// <returns>Retorna ao usuário a informação de exclusão</returns>
         [HttpDelete("delete/{id}")]
-        public async Task<ActionResult<Conservacao>> Delete(int id) {
-            try {
+        public async Task<ActionResult<Conservacao>> Delete(int id)
+        {
+            try
+            {
                 Conservacao conservacaoRetornado = await _conservacaoRepository.Get(id);
 
-                if (conservacaoRetornado == null) {
+                if (conservacaoRetornado == null)
+                {
                     return NotFound();
                 }
 
@@ -116,7 +138,8 @@ namespace API.Controllers {
 
                 return conservacaoRetornado;
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 throw ex;
             }
         }

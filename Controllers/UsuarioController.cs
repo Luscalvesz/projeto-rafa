@@ -14,7 +14,10 @@ namespace API.Controllers {
     [Produces("application/json")]
     public class UsuarioController : ControllerBase {
         UsuarioRepository _usuarioRepository = new UsuarioRepository();
-
+        /// <summary>
+        /// Listagem de todos os usuários
+        /// </summary>
+        /// <returns>Retorna ao usuário todos os usuários</returns>
         [HttpGet("tolist")]
         public async Task<ActionResult<List<Usuario>>> Get() {
             try {
@@ -35,6 +38,11 @@ namespace API.Controllers {
             }
         }
 
+        /// <summary>
+        /// Lista de um usuário específico
+        /// </summary>
+        /// <param name="id">Recebe o id do usuário informado</param>
+        /// <returns>Retorna ao usuário as informações do usuário informado</returns>
         [HttpGet("search/{id}")]
         public async Task<ActionResult<Usuario>> Get(int id) {
             try {
@@ -50,7 +58,11 @@ namespace API.Controllers {
                 throw ex;
             }
         }
-
+        /// <summary>
+        /// Incusão de um novo usuário
+        /// </summary>
+        /// <param name="usuario">Parâmetro recebe um novo usuário</param>
+        /// <returns>Retorna ao usuário os campos para criar um novo usuário</returns>
         [HttpPost("insert")]
         public async Task<ActionResult<Usuario>> Post(Usuario usuario) {
             try {
@@ -60,7 +72,12 @@ namespace API.Controllers {
                 throw ex;
             }
         }
-
+        /// <summary>
+        /// Alteração de um usuário específico
+        /// </summary>
+        /// <param name="id">Recebe o id específico do usuário</param>
+        /// <param name="usuario">Recebe as informações que serão alteradas</param>
+        /// <returns>Retorna ao usuário os campos para alteração de um usuário</returns>
         [HttpPut("update/{id}")]
         public async Task<ActionResult<Usuario>> Put(int id, Usuario usuario) {
             if (id != usuario.IdUsuario) {
@@ -81,7 +98,11 @@ namespace API.Controllers {
                 }
             }
         }
-
+        /// <summary>
+        /// Deleta um usuário 
+        /// </summary>
+        /// <param name="id">Recebe o id do usuário que será deletado</param>
+        /// <returns>Retorna ao usuário a informação de exclusão</returns>
         [HttpDelete("delete/{id}")]
         public async Task<ActionResult<Usuario>> Delete(int id) {
             try {

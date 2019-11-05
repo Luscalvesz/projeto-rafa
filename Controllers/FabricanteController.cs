@@ -58,7 +58,7 @@ namespace API.Controllers {
         /// Incusão de novo fabricante
         /// </summary>
         /// <param name="fabricante"> Parâmetro recebe um novo fabricante</param>
-        /// <returns></returns>
+        /// <returns>Retorna o novo fabricante inserido</returns>
         [HttpPost("insert")]
         public async Task<ActionResult<Fabricante>> Post(Fabricante fabricante) {
             try {
