@@ -13,11 +13,10 @@ namespace API.Controllers {
     [Produces("application/json")]
     public class FabricanteController : ControllerBase {
         FabricanteRepository _fabricanteRepository = new FabricanteRepository();
-
         /// <summary>
         /// Listagem de todos os fabricantes
         /// </summary>
-        /// <returns> Retorna ao usuário todos os fabricantes </returns>
+        /// <returns>Retorna ao usuário uma lista com todos os fabricantes</returns>
         [HttpGet("tolist")]
         public async Task<ActionResult<List<Fabricante>>> Get() {
             try {
@@ -33,12 +32,11 @@ namespace API.Controllers {
                 throw ex;
             }
         }
-
         /// <summary>
         /// Lista de um fabricante específico
         /// </summary>
-        /// <param name="id"> Recebe o id do fabricante</param>
-        /// <returns> Retorna ao usuário as informações do fabricante informada </returns>
+        /// <param name="id"> Recebe o id de um fabricante específico</param>
+        /// <returns>Retorna ao usuário um fabricante específico</returns>
         [HttpGet("search/{id}")]
         public async Task<ActionResult<Fabricante>> Get(int id) {
             try {
@@ -59,6 +57,7 @@ namespace API.Controllers {
         /// </summary>
         /// <param name="fabricante"> Parâmetro recebe um novo fabricante</param>
         /// <returns>Retorna o novo fabricante inserido</returns>
+
         [HttpPost("insert")]
         public async Task<ActionResult<Fabricante>> Post(Fabricante fabricante) {
             try {
@@ -69,11 +68,11 @@ namespace API.Controllers {
             }
         }
         /// <summary>
-        /// Alteração de um fabricante específico
+        /// Alteração de um fabricante
         /// </summary>
-        /// <param name="id"> Recebe o id específico do fabricante</param>
-        /// <param name="fabricante"> Recebe as informações que serão alteradas</param>
-        /// <returns> Retorna ao usuário os campos para alteração de um fabricante</returns>
+        /// <param name="id">Recebe o id d eum fabricante e</param>
+        /// <param name="fabricante">Recebe as informações que serão alteradas</param>
+        /// <returns>Retorna ao usuário os campos para alteração de um fabricante</returns>
         [HttpPut("update/{id}")]
         public async Task<ActionResult<Fabricante>> Put(int id, Fabricante fabricante) {
             if (id == fabricante.IdFabricante) {
@@ -94,12 +93,11 @@ namespace API.Controllers {
                 }
             }
         }
-
         /// <summary>
-        /// Deleta uma condição
+        /// Deleta um fabricante
         /// </summary>
-        /// <param name="id">Recebe o id do fabricante que será deletado</param>
-        /// <returns> Retorna ao usuário a informação de exclusão </returns>
+        /// <param name="id">Recebe o id de um fabricante</param>
+        /// <returns>Retorna ao usuário a informação de exclusão</returns>
         [HttpDelete("delete/{id}")]
         public async Task<ActionResult<Fabricante>> Delete(int id) {
             try {

@@ -13,6 +13,7 @@ namespace API.Controllers {
     [Produces("application/json")]
     public class AnuncioController : ControllerBase {
         AnuncioRepository _anuncioRepository = new AnuncioRepository();
+
         /// <summary>
         /// Listagem de todos os anúncios
         /// </summary>
@@ -38,6 +39,7 @@ namespace API.Controllers {
                 throw ex;
             }
         }
+
         /// <summary>
         /// Lista de anúncio específico
         /// </summary>
@@ -58,10 +60,11 @@ namespace API.Controllers {
                 throw ex;
             }
         }
+
         /// <summary>
         /// Filtro de preço
         /// </summary>
-        /// <param name="preco"> Parâmetro recebe o valor de preço </param>
+        /// <param name="preco">Parâmetro recebe o valor de preço</param>
         /// <returns>Retorna ao usuário lista de anúncios com o preço informado</returns>
         [HttpGet("search/filter/price/{preco}")]
         public async Task<ActionResult<List<Anuncio>>> Get(decimal preco) {
@@ -78,16 +81,21 @@ namespace API.Controllers {
                 throw ex;
             }
         }
+
         /// <summary>
         /// Filtro de conservação do produto e fabricante
         /// </summary>
-        /// <param name="fabricante"> Recebe o fabricante do produto informado</param>
-        /// <param name="conservacao">Recebe o estado de conservação do produto informado</param>
+        /// <param name="fabricante">Recebe o fabricante do produto informado</param>
+        /// <param name="conservacaoRecebida">Recebe o estado de conservação do produto informado</param>
         /// <returns>Retorna ao usuário os anúncios com as condições de produto e estado de conservação informados</returns>
-        [HttpGet("search/filter/manufacturer&conservation/{fabricante}/{conservacaoRecebida}")]
-        public async Task<ActionResult<List<Anuncio>>> Get(string fabricante, string conservacao) {
+        [HttpGet("search/filter/manufacturerEconservation/{fabricante}/{conservacaoRecebida}")]
+        public async Task<ActionResult<List<Anuncio>>> Get(string fabricante, string conservacaoRecebida) {
             try {
-                List<Anuncio> lstAnuncio = await _anuncioRepository.BuscaFabricanteConservacao(fabricante, conservacao);
+                List<Anuncio> lstAnuncio = await _anuncioRepository.BuscaFabricanteConservacao(fabricante, conservacaoRecebida);
+
+                if (lstAnuncio == null) {
+                    return NotFound();
+                }
 
                 return lstAnuncio;
             }
@@ -95,6 +103,7 @@ namespace API.Controllers {
                 throw ex;
             }
         }
+
         /// <summary>
         /// Filtro de busca
         /// </summary>
@@ -104,6 +113,10 @@ namespace API.Controllers {
         public async Task<ActionResult<List<Anuncio>>> Get(string campoDesejado) {
             try {
                 List<Anuncio> lstAnuncio = await _anuncioRepository.BuscaPorCampo(campoDesejado);
+
+                if (lstAnuncio == null) {
+                    return NotFound();
+                }
 
                 return lstAnuncio;
             }
@@ -153,7 +166,8 @@ namespace API.Controllers {
                 }
             }
         }
-         /// <summary>
+
+        /// <summary>
         /// Deleta um anúncio
         /// </summary>
         /// <param name="id">Recebe o id do anúncio que será deletado</param>

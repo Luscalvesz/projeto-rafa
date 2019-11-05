@@ -4,6 +4,7 @@
         <name>API</name>
     </assembly>
     <members>
+<<<<<<< HEAD
         <member name="M:API.Controllers.AnuncioController.Get">
             <summary>
             Listagem de todos os anúncios
@@ -237,6 +238,8 @@
             <param name="id">Recebe o id de interesse que será deletado</param>
             <returns>Retorna ao usuário a informação de exclusão</returns>
         </member>
+=======
+>>>>>>> c2efb0b51adac87a82615db6eabecdad0a9a4599
         <member name="M:API.Controllers.LoginController.AutenticarUsuario(API.Models.Usuario)">
             <summary>
             Método privado que valida se um usuário existe no nosso banco de dados

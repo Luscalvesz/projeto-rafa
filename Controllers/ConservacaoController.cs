@@ -42,10 +42,10 @@ namespace API.Controllers
             }
         }
         /// <summary>
-        /// Lista de uma conservação específica
+        /// Lista de um estado de conservação específico
         /// </summary>
-        /// <param name="id"> Recebe o id da conservação informada</param>
-        /// <returns> Retorna ao usuário as informações da conservação informada </returns>
+        /// <param name="id">Recebe o id de um estado de conservação específico</param>
+        /// <returns>Retorna ao usuário um estado de conservação específico</returns>
         [HttpGet("search/{id}")]
         public async Task<ActionResult<Conservacao>> Get(int id)
         {
@@ -65,12 +65,11 @@ namespace API.Controllers
                 throw ex;
             }
         }
-
         /// <summary>
-        /// Incusão de nova categoria
+        /// Inclusão de novo estado de conservação
         /// </summary>
-        /// <param name="conservacao">Parâmetro recebe uma nova conservação</param>
-        /// <returns> Retorna ao usuário os campos para criar uma nova conservação </returns>
+        /// <param name="conservacao"> Parâmetro recebe um informações do estado de conservação</param>
+        /// <returns>Retorna ao usuáro os campos para criar um novo estado de conservação</returns>
         [HttpPost("insert")]
         public async Task<ActionResult<Conservacao>> Post(Conservacao conservacao)
         {
@@ -83,13 +82,12 @@ namespace API.Controllers
                 throw ex;
             }
         }
-
         /// <summary>
-        /// Alteração de uma conservação específica
+        /// Alteração de um estado de conservação
         /// </summary>
-        /// <param name="id"> Recebe o id específico da conservação</param>
-        /// <param name="conservacao"> Recebe as informações que serão alteradas </param>
-        /// <returns>Retorna ao usuário os campos para alteração de uma conservação</returns>
+        /// <param name="id">Parâmetro recebe o id do estado de conservação</param>
+        /// <param name="conservacao"> Recebe as informações que serão alteradas</param>
+        /// <returns>Retorna ao usuário os campos para alteração de um estado de conservação</returns>
         [HttpPut("update/{id}")]
         public async Task<ActionResult<Conservacao>> Put(int id, Conservacao conservacao)
         {
@@ -116,11 +114,10 @@ namespace API.Controllers
                 }
             }
         }
-
         /// <summary>
-        /// Deleta uma condição
+        /// Deleta um estado de conservação
         /// </summary>
-        /// <param name="id"> Recebe o id da conservação que será deletada</param>
+        /// <param name="id">Recebe o id do estado de conservação que será deletado</param>
         /// <returns>Retorna ao usuário a informação de exclusão</returns>
         [HttpDelete("delete/{id}")]
         public async Task<ActionResult<Conservacao>> Delete(int id)
