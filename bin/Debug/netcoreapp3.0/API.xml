@@ -4,64 +4,6 @@
         <name>API</name>
     </assembly>
     <members>
-        <member name="M:API.Controllers.AnuncioController.Get">
-            <summary>
-            Listagem de todos os anúncios
-            </summary>
-            
-            <returns>Retorna ao usuário uma lista com todos anúncios</returns>
-        </member>
-        <member name="M:API.Controllers.AnuncioController.Get(System.Int32)">
-            <summary>
-            Lista de anúncio específico
-            </summary>
-            <param name="id">Recebe o id do anúncio informada</param>
-            <returns>Retorna ao usuário as informações do anúncio informado</returns>
-        </member>
-        <member name="M:API.Controllers.AnuncioController.Get(System.Decimal)">
-            <summary>
-            Filtro de preço
-            </summary>
-            <param name="preco"> Parâmetro recebe o valor de preço </param>
-            <returns>Retorna ao usuário lista de anúncios com o preço informado</returns>
-        </member>
-        <member name="M:API.Controllers.AnuncioController.Get(System.String,System.String)">
-            <summary>
-            Filtro de conservação do produto e fabricante
-            </summary>
-            <param name="fabricante"> Recebe o fabricante do produto informado</param>
-            <param name="conservacao">Recebe o estado de conservação do produto informado</param>
-            <returns>Retorna ao usuário os anúncios com as condições de produto e estado de conservação informados</returns>
-        </member>
-        <member name="M:API.Controllers.AnuncioController.Get(System.String)">
-            <summary>
-            Filtro de busca
-            </summary>
-            <param name="campoDesejado">Recebe uma informação como titulo ou palavras que contenham na descrição</param>
-            <returns>Retorna ao usuário os anúncios que possuem aquela palavra ou texto</returns>
-        </member>
-        <member name="M:API.Controllers.AnuncioController.Post(API.Models.Anuncio)">
-            <summary>
-            Incusão de novo anúncio
-            </summary>
-            <param name="anuncio">Parâmetro recebe um novo anúncio</param>
-            <returns>Retorna ao usuário os campos para criar um novo anúncio</returns>
-        </member>
-        <member name="M:API.Controllers.AnuncioController.Put(System.Int32,API.Models.Anuncio)">
-            <summary>
-            Alteração de anúncio específico
-            </summary>
-            <param name="id">Recebe o id específico do anúncio </param>
-            <param name="anuncio"> </param>
-            <returns>Retorna ao usuário os campos para alteração de um anúncio</returns>
-        </member>
-        <member name="M:API.Controllers.AnuncioController.Delete(System.Int32)">
-            <summary>
-            Deleta um anúncio
-            </summary>
-            <param name="id">Recebe o id do anúncio que será deletado</param>
-            <returns>Retorna ao usuário a informação de exclusão</returns>
-        </member>
         <member name="M:API.Controllers.LoginController.AutenticarUsuario(API.Models.Usuario)">
             <summary>
             Método privado que valida se um usuário existe no nosso banco de dados

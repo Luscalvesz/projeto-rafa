@@ -15,10 +15,6 @@ namespace API.Controllers {
     public class ConservacaoController : ControllerBase {
         ConservacaoRepository _conservacaoRepository = new ConservacaoRepository();
 
-        /// <summary>
-        /// Listagem de todos os estados de conservção
-        /// </summary>
-        /// <returns>Retorna ao usuário todos os estados de conservação</returns>
         [Authorize(Roles = "Administracao")]
         [HttpGet("tolist")]
         public async Task<ActionResult<List<Conservacao>>> Get() {
@@ -35,11 +31,7 @@ namespace API.Controllers {
                 throw ex;
             }
         }
-        /// <summary>
-        /// Lista de uma conservação específica
-        /// </summary>
-        /// <param name="id"> Recebe o id da conservação informada</param>
-        /// <returns> Retorna ao usuário as informações da conservação informada </returns>
+
         [HttpGet("search/{id}")]
         public async Task<ActionResult<Conservacao>> Get(int id) {
             try {
@@ -56,11 +48,6 @@ namespace API.Controllers {
             }
         }
 
-        /// <summary>
-        /// Incusão de nova categoria
-        /// </summary>
-        /// <param name="conservacao">Parâmetro recebe uma nova conservação</param>
-        /// <returns> Retorna ao usuário os campos para criar uma nova conservação </returns>
         [HttpPost("insert")]
         public async Task<ActionResult<Conservacao>> Post(Conservacao conservacao) {
             try {
@@ -71,12 +58,6 @@ namespace API.Controllers {
             }
         }
 
-        /// <summary>
-        /// Alteração de uma conservação específica
-        /// </summary>
-        /// <param name="id"> Recebe o id específico da conservação</param>
-        /// <param name="conservacao"> Recebe as informações que serão alteradas </param>
-        /// <returns>Retorna ao usuário os campos para alteração de uma conservação</returns>
         [HttpPut("update/{id}")]
         public async Task<ActionResult<Conservacao>> Put(int id, Conservacao conservacao) {
             if (id == conservacao.IdConservacao) {
@@ -98,11 +79,6 @@ namespace API.Controllers {
             }
         }
 
-        /// <summary>
-        /// Deleta uma condição
-        /// </summary>
-        /// <param name="id"> Recebe o id da conservação que será deletada</param>
-        /// <returns>Retorna ao usuário a informação de exclusão</returns>
         [HttpDelete("delete/{id}")]
         public async Task<ActionResult<Conservacao>> Delete(int id) {
             try {
