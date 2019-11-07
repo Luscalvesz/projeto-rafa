@@ -38,6 +38,7 @@ namespace API.Controllers {
                 throw ex;
             }
         }
+
         /// <summary>
         /// Lista de um produto específico
         /// </summary>
@@ -73,6 +74,7 @@ namespace API.Controllers {
                 throw ex;
             }
         }
+
         /// <summary>
         /// Alteração de um produto específico
         /// </summary>
@@ -99,6 +101,7 @@ namespace API.Controllers {
                 }
             }
         }
+
         /// <summary>
         /// Deleta um produto
         /// </summary>

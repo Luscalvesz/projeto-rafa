@@ -74,6 +74,7 @@ namespace API {
 
             // Habilitamos efetivamente o Swagger em nossa aplicação.
             app.UseSwagger();
+
             // Especificamos o endpoint da documentação
             app.UseSwaggerUI(c => {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "API V1");

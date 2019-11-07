@@ -13,6 +13,7 @@ namespace API.Controllers {
     [Produces("application/json")]
     public class TipoUsuarioController : ControllerBase {
         TipoUsuarioRepository _tipousuarioRepository = new TipoUsuarioRepository();
+
         /// <summary>
         /// Listagem de todos os tipos de usuário
         /// </summary>
@@ -32,6 +33,7 @@ namespace API.Controllers {
                 throw ex;
             }
         }
+
         /// <summary>
         /// Lista de um tipo de usuário específico
         /// </summary>
@@ -52,6 +54,7 @@ namespace API.Controllers {
                 throw ex;
             }
         }
+
         /// <summary>
         /// Incusão de um novo tipo de usuário
         /// </summary>
@@ -66,6 +69,7 @@ namespace API.Controllers {
                 throw ex;
             }
         }
+
         /// <summary>
         /// Alteração de um tipo de usuário específico
         /// </summary>
@@ -92,10 +96,11 @@ namespace API.Controllers {
                 }
             }
         }
+
         /// <summary>
         /// Deleta um tipo de usuário
         /// </summary>
-        /// /// <param name="id"> Recebe o id do tipo de usuário que será deletado</param>
+        /// <param name="id"> Recebe o id do tipo de usuário que será deletado</param>
         /// <returns>Retorna ao usuário a informação de exclusão</returns>
         [HttpDelete("delete/{id}")]
         public async Task<ActionResult<TipoUsuario>> Delete(int id) {

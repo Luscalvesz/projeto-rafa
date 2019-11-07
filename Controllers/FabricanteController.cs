@@ -13,7 +13,8 @@ namespace API.Controllers {
     [Produces("application/json")]
     public class FabricanteController : ControllerBase {
         FabricanteRepository _fabricanteRepository = new FabricanteRepository();
-        /// <summary>
+
+        // <summary>
         /// Listagem de todos os fabricantes
         /// </summary>
         /// <returns>Retorna ao usuário uma lista com todos os fabricantes</returns>
@@ -32,6 +33,7 @@ namespace API.Controllers {
                 throw ex;
             }
         }
+
         /// <summary>
         /// Lista de um fabricante específico
         /// </summary>
@@ -52,12 +54,12 @@ namespace API.Controllers {
                 throw ex;
             }
         }
+
         /// <summary>
         /// Incusão de novo fabricante
         /// </summary>
         /// <param name="fabricante"> Parâmetro recebe um novo fabricante</param>
         /// <returns>Retorna o novo fabricante inserido</returns>
-
         [HttpPost("insert")]
         public async Task<ActionResult<Fabricante>> Post(Fabricante fabricante) {
             try {
@@ -67,6 +69,7 @@ namespace API.Controllers {
                 throw ex;
             }
         }
+
         /// <summary>
         /// Alteração de um fabricante
         /// </summary>
@@ -93,6 +96,7 @@ namespace API.Controllers {
                 }
             }
         }
+
         /// <summary>
         /// Deleta um fabricante
         /// </summary>

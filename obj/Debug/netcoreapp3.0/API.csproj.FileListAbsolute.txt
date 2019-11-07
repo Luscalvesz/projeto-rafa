@@ -100,8 +100,6 @@ C:\CodeXP\ThoughtWorks-PROJETO\Time2-EOL\API\bin\Debug\netcoreapp3.0\runtimes\wi
 C:\CodeXP\ThoughtWorks-PROJETO\Time2-EOL\API\obj\Debug\netcoreapp3.0\API.csprojAssemblyReference.cache
 C:\CodeXP\ThoughtWorks-PROJETO\Time2-EOL\API\obj\Debug\netcoreapp3.0\staticwebassets\API.StaticWebAssets.Manifest.cache
 C:\CodeXP\ThoughtWorks-PROJETO\Time2-EOL\API\obj\Debug\netcoreapp3.0\staticwebassets\API.StaticWebAssets.xml
-C:\CodeXP\ThoughtWorks-PROJETO\Time2-EOL\API\obj\Debug\netcoreapp3.0\API.MvcApplicationPartsAssemblyInfo.cs
-C:\CodeXP\ThoughtWorks-PROJETO\Time2-EOL\API\obj\Debug\netcoreapp3.0\API.MvcApplicationPartsAssemblyInfo.cache
 C:\CodeXP\ThoughtWorks-PROJETO\Time2-EOL\API\obj\Debug\netcoreapp3.0\API.AssemblyInfoInputs.cache
 C:\CodeXP\ThoughtWorks-PROJETO\Time2-EOL\API\obj\Debug\netcoreapp3.0\API.AssemblyInfo.cs
 C:\CodeXP\ThoughtWorks-PROJETO\Time2-EOL\API\obj\Debug\netcoreapp3.0\API.RazorTargetAssemblyInfo.cache

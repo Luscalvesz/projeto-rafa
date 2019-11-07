@@ -6,10 +6,12 @@ using API.Models;
 
 namespace API.Interfaces {
     interface IUsuarioRepository {
-        Task<List<Usuario>> Get();
-        Task<Usuario> Get(int id);
-        Task<Usuario> Post(Usuario usuario);
-        Task<Usuario> Put(Usuario usuario);
-        Task<Usuario> Delete(Usuario usuarioRetornado);
+        Usuario AutenticarLogin(UsuarioLogin login);
+        Task<List<Usuario>> Listar();
+        Task<Usuario> BuscarPorId(int id);
+        Task<Usuario> Cadastrar(Usuario usuario);
+        Task<Usuario> VerificarEmail(Usuario login);
+        Task<Usuario> Atualizar(Usuario usuario);
+        Task<Usuario> Deletar(Usuario usuarioRetornado);
     }
 }

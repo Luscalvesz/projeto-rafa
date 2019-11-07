@@ -9,10 +9,12 @@ namespace API.Interfaces {
         Task<List<Anuncio>> Listar();
         Task<Anuncio> BuscaPorId(int id);
         Task<List<Anuncio>> BuscaPorPreco(decimal preco);
+        Task<List<Anuncio>> BuscaPorPrecoSet(decimal precoMin, decimal precoMax);
         Task<List<Anuncio>> BuscaFabricanteConservacao(string fabricante, string conservacao);
+        Task<List<Anuncio>> OrdenarPorData();
         Task<List<Anuncio>> BuscaPorCampo(string campoDesejado);
-        Task<Anuncio> Post(Anuncio anuncio);
-        Task<Anuncio> Put(Anuncio anuncio);
-        Task<Anuncio> Delete(Anuncio anuncioRetornado);
+        Task<Anuncio> Cadastrar(Anuncio anuncio);
+        Task<Anuncio> Atualizar(Anuncio anuncio);
+        Task<Anuncio> Deletar(Anuncio anuncioRetornado);
     }
 }
